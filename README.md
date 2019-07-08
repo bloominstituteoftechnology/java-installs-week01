@@ -25,7 +25,7 @@ print("hello world!")
 ```The basic steps to installing the software are:
 
 * Download and install the Windows software from:  
-https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html
+[https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
 Note that you have to accept the licensing agreement before you can download the software
 * add to environment variable JAVA_HOME C:\Program Files\Java\jdk-11.0.2
@@ -40,8 +40,8 @@ To test the installation
 
 [![Video to Install Sublime](http://img.youtube.com/vi/Rk6sm0i2luE/0.jpg)](http://www.youtube.com/watch?v=Rk6sm0i2luE)
 
-```Download and install the Windows software from    
-https://www.sublimetext.com/
+```Download and install the Windows software from
+[https://www.sublimetext.com/](https://www.sublimetext.com/)
 ```
 
 </p>
