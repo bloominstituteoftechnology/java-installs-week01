@@ -377,5 +377,131 @@ Categories=Development;
 
 ---
 ### Install Heroku CLI on a Linux Computer
+
+[![Video to Install Heroku CLI](http://img.youtube.com/vi/6Wm2Oo2ixXI/0.jpg)](http://www.youtube.com/watch?v=6Wm2Oo2ixXI)
+
+Create a free Heroku account at the website https://www.heroku.com
+
+Install the Heroku CLI. At a terminal prompt, enter    
+```sudo snap install --classic heroku```
+
+Test Heroku by entering a terminal prompt   
+```heroku login```
+
+---
+### Install Tomcat on a Linux Computer
+
+[![Video to Install Tomcat](http://img.youtube.com/vi/PbFgS2SfaZE/0.jpg)](http://www.youtube.com/watch?v=PbFgS2SfaZE)
+
+To install Apache Tomcat, enter the following from a terminal prompt:
+
+* sudo groupadd tomcat
+* sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+* cd /opt/
+* sudo wget http://apache.cs.utah.edu/tomcat/tomcat-9/v9.0.17/bin/apache-tomcat-9.0.17.tar.gz
+* sudo tar -xzvf apache-tomcat-9.0.17.tar.gz
+* sudo mv apache-tomcat-9.0.17/ tomcat/
+* sudo chown -hR tomcat:tomcat /opt/tomcat
+* sudo chmod +x /opt/tomcat/bin/
+* sudo nano ~/.bashrc
+** Add the following line   
+```export CATALINA_HOME=/opt/tomcat```
+** exit nano
+
+* source ~/.bashrc
+* echo $CATALINA_HOME   
+You should see /opt/tomcat
+
+* cd /etc/systemd/system/
+* sudo nano apache-tomcat.service
+** enter the following 18 lines
+```
+[Unit]
+Description=Apache Tomcat 9 Servlet Container
+After=syslog.target network.target
+
+[Service]
+User=tomcat
+Group=tomcat
+Type=forking
+Environment=JAVA_HOME=/usr/lib/jvm/java-11-oracle
+Environment=CATALINA_PID=/opt/tomcat/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+** exit nano
+
+* sudo chown -hR tomcat:tomcat /opt/tomcat
+* sudo chmod +x /opt/tomcat/bin/
+
+* systemctl daemon-reload
+* systemctl start apache-tomcat
+* systemctl enable apache-tomcat
+
+To test Tomcat, surf to localhost:8080
+* You should see the Tomcat default webpage
+* Tomcat defaults to listening on port 8080
+
+---
+### *** OPTIONALLY *** Install RabbitMQ on a Linux Computer
+
+[![Video to Install RabbitMQ](http://img.youtube.com/vi/jDPsisgWpr0/0.jpg)](http://www.youtube.com/watch?v=jDPsisgWpr0)
+
+To install the software, first install Erlang and then the RabbitMQ server by doing the following from a terminal prompt:
+
+* sudo apt update
+* sudo apt install curl
+* wget -O - "https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc" | sudo apt-key add -
+* sudo apt install apt-transport-https
+* sudo nano /etc/apt/sources.list.d/bintray.erlang.list
+** Add the line   
+```deb http://dl.bintray.com/rabbitmq-erlang/debian bionic erlang```
+** exit nano
+* sudo apt update
+* sudo apt install erlang-nox
+* sudo nano /etc/apt/preferences.d/erlang
+** Add the three lines   
+```
+Package: erlang*
+Pin: release o=Bintray
+Pin-Priority: 1000
+```
+*** exit nano
+* sudo apt update
+* sudo apt-cache policy
+* curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash
+* sudo apt update
+* sudo apt install rabbitmq-server
+* sudo service rabbitmq-server start
+
+Test the installation by entering the following at a terminal prompt
+* sudo rabbitmqctl version
+RabbitMQ should respond with a version number
+
+---
+### *** OPTIONALLY *** Install Redis on a Linux Computer
+
+[![Video to Install Redis](http://img.youtube.com/vi/wWRxgPFO1zE/0.jpg)](http://www.youtube.com/watch?v=wWRxgPFO1zE)
+
+To install Redis, enter the following at a terminal prompt
+
+* sudo apt update
+* sudo apt install redis-server
+* sudo nano /etc/redis/redis.conf
+** search for supervised change line to supervised systemd
+** exit nano
+* sudo systemctl restart redis.service
+
+To test Redis, enter the following at a terminal prompt
+* redis-cli ping   
+Redis will respond with pong
+
+---
 </p>
 </details>
