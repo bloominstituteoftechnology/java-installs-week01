@@ -404,9 +404,9 @@ To install Apache Tomcat, enter the following from a terminal prompt:
 * sudo chown -hR tomcat:tomcat /opt/tomcat
 * sudo chmod +x /opt/tomcat/bin/
 * sudo nano ~/.bashrc
-** Add the following line   
+  * Add the following line   
 ```export CATALINA_HOME=/opt/tomcat```
-** exit nano
+  * exit nano
 
 * source ~/.bashrc
 * echo $CATALINA_HOME   
@@ -414,7 +414,7 @@ You should see /opt/tomcat
 
 * cd /etc/systemd/system/
 * sudo nano apache-tomcat.service
-** enter the following 18 lines
+  * enter the following 18 lines
 ```
 [Unit]
 Description=Apache Tomcat 9 Servlet Container
@@ -435,7 +435,7 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
-** exit nano
+  * exit nano
 
 * sudo chown -hR tomcat:tomcat /opt/tomcat
 * sudo chmod +x /opt/tomcat/bin/
@@ -460,19 +460,19 @@ To install the software, first install Erlang and then the RabbitMQ server by do
 * wget -O - "https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc" | sudo apt-key add -
 * sudo apt install apt-transport-https
 * sudo nano /etc/apt/sources.list.d/bintray.erlang.list
-** Add the line   
+  * Add the line   
 ```deb http://dl.bintray.com/rabbitmq-erlang/debian bionic erlang```
-** exit nano
+  * exit nano
 * sudo apt update
 * sudo apt install erlang-nox
 * sudo nano /etc/apt/preferences.d/erlang
-** Add the three lines   
+  * Add the three lines   
 ```
 Package: erlang*
 Pin: release o=Bintray
 Pin-Priority: 1000
 ```
-*** exit nano
+  * exit nano
 * sudo apt update
 * sudo apt-cache policy
 * curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash
@@ -494,8 +494,8 @@ To install Redis, enter the following at a terminal prompt
 * sudo apt update
 * sudo apt install redis-server
 * sudo nano /etc/redis/redis.conf
-** search for supervised change line to supervised systemd
-** exit nano
+  * search for supervised change line to supervised systemd
+  * exit nano
 * sudo systemctl restart redis.service
 
 To test Redis, enter the following at a terminal prompt
