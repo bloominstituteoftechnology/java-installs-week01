@@ -8,7 +8,11 @@
 
 [![Video to Install JDK](http://img.youtube.com/vi/OswS2dkvjnU/0.jpg)](http://www.youtube.com/watch?v=OswS2dkvjnU)
 
-The Jet Brains IntelliJ IDEA Ultimate Version is installed from your GitHub Student Package. We do need the Ultimate Version for the class. When installing, taking the defaults is the best way to proceed.
+The Jet Brains IntelliJ IDEA Ultimate Version is installed from your GitHub Student Package. You can find how to access your GitHub Student Package from the Lambda School Dashboard (using your own first name and last name)
+
+[https://dashboards.lambdaschool.com/students/firstname-lastname/](https://dashboards.lambdaschool.com/students/firstname-lastname/)
+
+We do need the Ultimate Version for the class. When installing, taking the defaults is the best way to proceed.
 
 This video shows how your instructor has configured his IDE. You may have your own preferences.
 
